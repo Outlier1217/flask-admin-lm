@@ -82,10 +82,24 @@ def is_mobile_request():
     mobile_indicators = ['iphone', 'android', 'blackberry', 'windows phone']
     return any(indicator in user_agent for indicator in mobile_indicators)
 
+# Initialize database (only runs once on startup)
+def init_db():
+    with app.app_context():
+        db.create_all()
+        logger.info("Database tables created/initialized")
+
+# Run database initialization on startup
+init_db()
+
 # Debug route to list uploaded files
+@app.route('/debug/uploads')
+@login_required
+def debug_uploads():
+    upload_dir = app.config['UPLOAD_FOLDER']
+    files = os.listdir(upload_dir) if os.path.exists(upload_dir) else []
+    return jsonify({'upload_folder': upload_dir, 'files': files})
 
 # Add these routes after the existing public routes
-
 @app.route('/architecture')
 def architecture():
     return render_template('architecture.html', is_mobile=is_mobile_request())
@@ -99,7 +113,6 @@ def vastu():
     return render_template('vastu.html', is_mobile=is_mobile_request())
 
 # Add these routes after the existing art service routes
-
 @app.route('/pencil-portraits')
 def pencil_portraits():
     return render_template('pencil_portraits.html', is_mobile=is_mobile_request())
@@ -111,13 +124,6 @@ def oil_portraits():
 @app.route('/paintings')
 def paintings():
     return render_template('paintings.html', is_mobile=is_mobile_request())
-
-@app.route('/debug/uploads')
-@login_required
-def debug_uploads():
-    upload_dir = app.config['UPLOAD_FOLDER']
-    files = os.listdir(upload_dir) if os.path.exists(upload_dir) else []
-    return jsonify({'upload_folder': upload_dir, 'files': files})
 
 # Admin Routes (unchanged from your original code)
 @app.route('/admin')
@@ -131,7 +137,7 @@ def login():
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
-        admin = db.session.get(Admin, Admin.query.filter_by(email=email).first().id)
+        admin = Admin.query.filter_by(email=email).first()
         if admin and check_password_hash(admin.password_hash, password):
             login_user(admin)
             return redirect(url_for('dashboard'))
@@ -496,6 +502,4 @@ def contact():
     return render_template('contact.html', is_mobile=is_mobile_request())
 
 if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()
     app.run(debug=True)
