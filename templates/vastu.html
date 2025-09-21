@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vastu Consultancy - LM Architects</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/vastu.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="{{ url_for('home') }}">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="LM Architects Logo" class="logo-image">
+                </a>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+                <a href="{{ url_for('about') }}" class="nav-link">About</a>
+                <a href="{{ url_for('projects') }}" class="nav-link">Projects</a>
+                <a href="{{ url_for('blog') }}" class="nav-link">Blog</a>
+                <a href="{{ url_for('store') }}" class="nav-link">Store</a>
+                <a href="{{ url_for('contact') }}" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Vastu Consultancy</h1>
+                <p class="hero-description">
+                    Harmonizing architecture with cosmic energies to create balanced, prosperous, and peaceful living spaces.
+                </p>
+                <div class="hero-breadcrumbs">
+                    <a href="{{ url_for('home') }}" class="breadcrumb-link"><i class="fas fa-home"></i> Home</a>
+                    <span class="breadcrumb-separator">/</span>
+                    <span class="breadcrumb-current">Vastu Consultancy</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vastu Introduction -->
+    <section class="introduction-section">
+        <div class="container">
+            <div class="intro-content">
+                <div class="intro-text">
+                    <h2 class="section-title">The Science of Harmony</h2>
+                    <p class="intro-description">
+                        Vastu Shastra is the ancient Indian science of architecture that aligns buildings with natural forces to create environments that promote health, prosperity, and spiritual well-being. At LM Architects, we blend this timeless wisdom with contemporary design to create spaces that resonate with universal energies.
+                    </p>
+                    <div class="vastu-benefits">
+                        <div class="benefit-item">
+                            <i class="fas fa-balance-scale"></i>
+                            <h3>Energy Balance</h3>
+                            <p>Harmonize the five elements within your living space</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>Prosperity Flow</h3>
+                            <p>Optimize energy flow for success and abundance</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-heart"></i>
+                            <h3>Health & Well-being</h3>
+                            <p>Create environments that nurture body and mind</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-users"></i>
+                            <h3>Relationship Harmony</h3>
+                            <p>Foster positive relationships and family unity</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="intro-image">
+                    <img src="static/images/vast_1.jpeg" alt="Vastu Harmony">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vastu Directions -->
+    <section class="directions-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">The Eight Directions & Their Energies</h2>
+                <p class="section-description">
+                    Each direction in Vastu carries specific energies that influence different aspects of life. Understanding these helps us create balanced spaces.
+                </p>
+            </div>
+            <div class="directions-grid">
+                <div class="direction-card north-card">
+                    <div class="direction-icon">
+                        <i class="fas fa-compass"></i>
+                    </div>
+                    <h3 class="direction-title">North</h3>
+                    <p class="direction-element">Water Element</p>
+                    <p class="direction-description">Career, wealth accumulation, and opportunities. Ideal for main entrance and study areas.</p>
+                </div>
+
+                <div class="direction-card northeast-card">
+                    <div class="direction-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h3 class="direction-title">Northeast</h3>
+                    <p class="direction-element">Water Element</p>
+                    <p class="direction-description">Spirituality, clarity, and meditation. Perfect for pooja room and water storage.</p>
+                </div>
+
+                <div class="direction-card east-card">
+                    <div class="direction-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <h3 class="direction-title">East</h3>
+                    <p class="direction-element">Air Element</p>
+                    <p class="direction-description">Health, vitality, and new beginnings. Best for main entrance and living areas.</p>
+                </div>
+
+                <div class="direction-card southeast-card">
+                    <div class="direction-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3 class="direction-title">Southeast</h3>
+                    <p class="direction-element">Fire Element</p>
+                    <p class="direction-description">Relationships, creativity, and fame. Ideal for kitchen and entertainment spaces.</p>
+                </div>
+
+                <div class="direction-card south-card">
+                    <div class="direction-icon">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <h3 class="direction-title">South</h3>
+                    <p class="direction-element">Fire Element</p>
+                    <p class="direction-description">Stability, authority, and recognition. Suitable for master bedroom and office.</p>
+                </div>
+
+                <div class="direction-card southwest-card">
+                    <div class="direction-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="direction-title">Southwest</h3>
+                    <p class="direction-element">Earth Element</p>
+                    <p class="direction-description">Relationships, family stability, and grounding. Perfect for master bedroom.</p>
+                </div>
+
+                <div class="direction-card west-card">
+                    <div class="direction-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3 class="direction-title">West</h3>
+                    <p class="direction-element">Air Element</p>
+                    <p class="direction-description">Creativity, children, and gains. Good for children's rooms and guest areas.</p>
+                </div>
+
+                <div class="direction-card northwest-card">
+                    <div class="direction-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="direction-title">Northwest</h3>
+                    <p class="direction-element">Air Element</p>
+                    <p class="direction-description">Relationships, support, and social connections. Ideal for guest rooms and dining.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vastu Services -->
+    <section class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Vastu Services</h2>
+                <p class="section-description">
+                    Comprehensive Vastu solutions tailored to your specific needs, from site analysis to remedial measures.
+                </p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-compass"></i>
+                    </div>
+                    <h3 class="service-title">Site & Plot Analysis</h3>
+                    <p class="service-description">
+                        Comprehensive evaluation of land plot, soil quality, and directional energies to determine the most auspicious building orientation.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Plot shape and size analysis</li>
+                        <li><i class="fas fa-check"></i> Soil testing and quality assessment</li>
+                        <li><i class="fas fa-check"></i> Directional energy mapping</li>
+                        <li><i class="fas fa-check"></i> Slope and contour analysis</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-drafting-compass"></i>
+                    </div>
+                    <h3 class="service-title">Building Design Consultation</h3>
+                    <p class="service-description">
+                        Vastu-compliant architectural planning that integrates traditional principles with modern design aesthetics.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Main entrance placement</li>
+                        <li><i class="fas fa-check"></i> Room allocation per Vastu zones</li>
+                        <li><i class="fas fa-check"></i> Staircase and lift positioning</li>
+                        <li><i class="fas fa-check"></i> Structural element alignment</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="service-title">Interior Vastu</h3>
+                    <p class="service-description">
+                        Optimizing interior layouts, furniture placement, and color schemes to enhance positive energy flow within existing spaces.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Furniture and bed positioning</li>
+                        <li><i class="fas fa-check"></i> Color scheme recommendations</li>
+                        <li><i class="fas fa-check"></i> Mirror and artwork placement</li>
+                        <li><i class="fas fa-check"></i> Electrical and plumbing layout</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3 class="service-title">Remedial Solutions</h3>
+                    <p class="service-description">
+                        Non-invasive remedies and corrections for Vastu doshas in existing structures without major renovations.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Yantra and crystal placements</li>
+                        <li><i class="fas fa-check"></i> Color therapy solutions</li>
+                        <li><i class="fas fa-check"></i> Plant and water feature remedies</li>
+                        <li><i class="fas fa-check"></i> Pyramid and Vastu strips</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vastu Case Studies -->
+    <section class="case-studies-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Vastu Success Stories</h2>
+                <p class="section-description">
+                    Real transformations that demonstrate the power of Vastu principles in modern living.
+                </p>
+            </div>
+            <div class="case-studies-grid">
+                <div class="case-study-card">
+                    <div class="case-image">
+                        <img src="static/images/vast_2.jpeg" alt="Residential Vastu">
+                    </div>
+                    <div class="case-content">
+                        <div class="case-tags">
+                            <span class="case-tag">Residential</span>
+                            <span class="case-tag">3BHK Apartment</span>
+                        </div>
+                        <h3 class="case-title">Family Home Transformation</h3>
+                        <p class="case-description">
+                            A young family struggling with relationship harmony and career stagnation found balance after implementing Vastu corrections in their 3BHK apartment. Within six months, they reported improved family dynamics and professional success.
+                        </p>
+                        <div class="case-results">
+                            <div class="result-item">
+                                <i class="fas fa-plus-circle"></i>
+                                <span>Family harmony improved by 85%</span>
+                            </div>
+                            <div class="result-item">
+                                <i class="fas fa-plus-circle"></i>
+                                <span>Career opportunities doubled</span>
+                            </div>
+                            <div class="result-item">
+                                <i class="fas fa-plus-circle"></i>
+                                <span>Health issues resolved</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-study-card">
+                    <div class="case-image">
+                        <img src="static/images/vast_3.jpeg" alt="Commercial Vastu">
+                    </div>
+                    <div class="case-content">
+                        <div class="case-tags">
+                            <span class="case-tag">Commercial</span>
+                            <span class="case-tag">Office Space</span>
+                        </div>
+                        <h3 class="case-title">Corporate Office Success</h3>
+                        <p class="case-description">
+                            A struggling startup implemented Vastu principles in their new office layout, resulting in a 300% increase in productivity and a significant boost in client acquisition within the first year.
+                        </p>
+                        <div class="case-results">
+                            <div class="result-item">
+                                <i class="fas fa-plus-circle"></i>
+                                <span>Productivity increased 300%</span>
+                            </div>
+                            <div class="result-item">
+                                <i class="fas fa-plus-circle"></i>
+                                <span>Client acquisition up 200%</span>
+                            </div>
+                            <div class="result-item">
+                                <i class="fas fa-plus-circle"></i>
+                                <span>Employee retention improved</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-study-card">
+                    <div class="case-image">
+                        <img src="static/images/vast_4.jpeg" alt="Villa Vastu">
+                    </div>
+                    <div class="case-content">
+                        <div class="case-tags">
+                            <span class="case-tag">Residential</span>
+                            <span class="case-tag">Luxury Villa</span>
+                        </div>
+                        <h3 class="case-title">Luxury Villa Prosperity</h3>
+                        <p class="case-description">
+                            A high-profile client built their dream villa with Vastu-compliant design from the ground up, experiencing unprecedented business growth and family prosperity within the first year of occupancy.
+                        </p>
+                        <div class="case-results">
+                            <div class="result-item">
+                                <i class="fas fa-plus-circle"></i>
+                                <span>Business revenue up 450%</span>
+                            </div>
+                            <div class="result-item">
+                                <i class="fas fa-plus-circle"></i>
+                                <span>Family prosperity enhanced</span>
+                            </div>
+                            <div class="result-item">
+                                <i class="fas fa-plus-circle"></i>
+                                <span>Perfect health maintained</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vastu Myths vs Facts -->
+    <section class="myths-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Vastu Myths vs Facts</h2>
+                <p class="section-description">
+                    Separating superstition from the authentic science of Vastu Shastra.
+                </p>
+            </div>
+            <div class="myths-grid">
+                <div class="myth-card">
+                    <div class="myth-icon myth">
+                        <i class="fas fa-times-circle"></i>
+                    </div>
+                    <h3 class="myth-title">Myth</h3>
+                    <p class="myth-text">
+                        Vastu requires complete demolition and rebuilding of existing structures.
+                    </p>
+                    <div class="fact-reveal">
+                        <div class="fact-content">
+                            <div class="fact-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h3 class="fact-title">Fact</h3>
+                            <p class="fact-text">
+                                Most Vastu corrections can be achieved through simple, non-invasive remedies like color changes, mirror placements, and yantra installations without structural modifications.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="myth-card">
+                    <div class="myth-icon myth">
+                        <i class="fas fa-times-circle"></i>
+                    </div>
+                    <h3 class="myth-title">Myth</h3>
+                    <p class="myth-text">
+                        Only south-facing houses are inauspicious according to Vastu.
+                    </p>
+                    <div class="fact-reveal">
+                        <div class="fact-content">
+                            <div class="fact-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h3 class="fact-title">Fact</h3>
+                            <p class="fact-text">
+                                Every direction has positive and negative aspects. South-facing homes can be highly prosperous when designed with proper Vastu principles, especially for business owners.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="myth-card">
+                    <div class="myth-icon myth">
+                        <i class="fas fa-times-circle"></i>
+                    </div>
+                    <h3 class="myth-title">Myth</h3>
+                    <p class="myth-text">
+                        Vastu is only relevant for new constructions.
+                    </p>
+                    <div class="fact-reveal">
+                        <div class="fact-content">
+                            <div class="fact-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h3 class="fact-title">Fact</h3>
+                            <p class="fact-text">
+                                Vastu remedies can be effectively applied to existing buildings through interior modifications, color therapy, and energy-balancing techniques without major renovations.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Create Your Harmonious Space</h2>
+                <p class="cta-description">
+                    Experience the transformative power of Vastu in your home or workplace. Our expert consultants will guide you toward a balanced and prosperous environment.
+                </p>
+                <div class="cta-buttons">
+                    <a href="{{ url_for('contact') }}" class="btn btn-primary">Book Vastu Consultation</a>
+                    <a href="{{ url_for('projects') }}" class="btn btn-outline">View Our Work</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-title">LM Architects</h3>
+                    <p class="footer-description">
+                        Transforming visions into reality through innovative design, exceptional artistry, and comprehensive education.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-subtitle">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="{{ url_for('home') }}">Home</a></li>
+                        <li><a href="{{ url_for('about') }}">About</a></li>
+                        <li><a href="{{ url_for('projects') }}">Projects</a></li>
+                        <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                        <li><a href="{{ url_for('store') }}">Store</a></li>
+                        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-subtitle">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Architecture Design</a></li>
+                        <li><a href="#">Interior Design</a></li>
+                        <li><a href="#">Vastu Consultancy</a></li>
+                        <li><a href="#">Art Portraits</a></li>
+                        <li><a href="#">Educational Courses</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-subtitle">Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i>8122/6017, Block F, Sanjay Colony, Sector 23, Faridabad, Haryana 121005</p>
+                        <p><i class="fas fa-phone"></i> +91 88827 44327</p>
+                        <p><i class="fas fa-envelope"></i>support@lmlibrary.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 LM Architects. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/vastu.js') }}"></script>
+</body>
+</html>

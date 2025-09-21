@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture Design - LM Architects</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/architecture.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+           <div class="nav-logo">
+                <a href="{{ url_for('home') }}">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="LM Architects Logo" class="logo-image">
+                </a>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+                <a href="{{ url_for('about') }}" class="nav-link">About</a>
+                <a href="{{ url_for('projects') }}" class="nav-link">Projects</a>
+                <a href="{{ url_for('blog') }}" class="nav-link">Blog</a>
+                <a href="{{ url_for('store') }}" class="nav-link">Store</a>
+                <a href="{{ url_for('contact') }}" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Architecture Design</h1>
+                <p class="hero-description">
+                    Creating timeless structures that harmonize with their environment while meeting the functional needs of modern living.
+                </p>
+                <div class="hero-breadcrumbs">
+                    <a href="{{ url_for('home') }}" class="breadcrumb-link"><i class="fas fa-home"></i> Home</a>
+                    <span class="breadcrumb-separator">/</span>
+                    <span class="breadcrumb-current">Architecture Design</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Design Process</h2>
+                <p class="section-description">
+                    We follow a comprehensive, client-centered approach to transform your vision into a functional and beautiful reality.
+                </p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <h3 class="step-title">Consultation & Vision</h3>
+                    <p class="step-description">
+                        We begin with in-depth discussions to understand your needs, lifestyle, and aspirations. This phase includes site analysis and initial concept development.
+                    </p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <h3 class="step-title">Concept Development</h3>
+                    <p class="step-description">
+                        Our architects create initial design concepts, sketches, and 3D models to visualize your space. We refine these based on your feedback.
+                    </p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <h3 class="step-title">Design & Documentation</h3>
+                    <p class="step-description">
+                        Detailed architectural drawings, structural calculations, and technical specifications are prepared. We ensure compliance with all building codes.
+                    </p>
+                </div>
+            
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Architecture Projects -->
+    <section class="featured-projects-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Architecture Projects</h2>
+                <p class="section-description">
+                    Explore our portfolio of innovative architectural designs that blend functionality, aesthetics, and sustainability.
+                </p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card architecture-card">
+                    <div class="project-image">
+                        <img src="static/images/moder.jpeg" alt="Modern Residence">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3 class="project-title">Modern Residence</h3>
+                                <p class="project-location">Bangalore, Karnataka</p>
+                                <div class="project-stats">
+                                    <span class="stat-item"><i class="fas fa-home"></i> 3500 sq.ft</span>
+                                    <span class="stat-item"><i class="fas fa-users"></i> 4 Bedrooms</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag">Residential</span>
+                            <span class="project-tag">Modern</span>
+                            <span class="project-tag">Sustainable</span>
+                        </div>
+                        <p class="project-description">
+                            A contemporary family home designed with open spaces, natural light, and sustainable materials that create a seamless indoor-outdoor living experience.
+                        </p>
+                        <a href="#" class="project-link">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card architecture-card">
+                    <div class="project-image">
+                        <img src="static/images/corporate.jpeg" alt="Corporate Headquarters">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3 class="project-title">Corporate Headquarters</h3>
+                                <p class="project-location">Mumbai, Maharashtra</p>
+                                <div class="project-stats">
+                                    <span class="stat-item"><i class="fas fa-building"></i> 25,000 sq.ft</span>
+                                    <span class="stat-item"><i class="fas fa-chart-line"></i> 5 Floors</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag">Commercial</span>
+                            <span class="project-tag">Corporate</span>
+                            <span class="project-tag">Contemporary</span>
+                        </div>
+                        <p class="project-description">
+                            A state-of-the-art corporate headquarters featuring collaborative workspaces, green terraces, and energy-efficient design elements.
+                        </p>
+                        <a href="#" class="project-link">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card architecture-card">
+                    <div class="project-image">
+                        <img src="static/images/villa.jpeg" alt="Villa Retreat">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3 class="project-title">Villa Retreat</h3>
+                                <p class="project-location">Goa</p>
+                                <div class="project-stats">
+                                    <span class="stat-item"><i class="fas fa-bed"></i> 5 Bedrooms</span>
+                                    <span class="stat-item"><i class="fas fa-swimming-pool"></i> Infinity Pool</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag">Residential</span>
+                            <span class="project-tag">Luxury</span>
+                            <span class="project-tag">Tropical</span>
+                        </div>
+                        <p class="project-description">
+                            A luxurious beachfront villa that captures the essence of tropical living with expansive views and seamless indoor-outdoor connectivity.
+                        </p>
+                        <a href="#" class="project-link">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Services -->
+    <section class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Architecture Services</h2>
+                <p class="section-description">
+                    Comprehensive architectural solutions tailored to your specific needs and vision.
+                </p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-drafting-compass"></i>
+                    </div>
+                    <h3 class="service-title">Residential Design</h3>
+                    <p class="service-description">
+                        From cozy apartments to expansive villas, we create homes that reflect your lifestyle and personality while maximizing functionality and comfort.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Site analysis & planning</li>
+                        <li><i class="fas fa-check"></i> 3D modeling & visualization</li>
+                        <li><i class="fas fa-check"></i> Interior-exterior coordination</li>
+                        <li><i class="fas fa-check"></i> Sustainable design solutions</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="service-title">Commercial Design</h3>
+                    <p class="service-description">
+                        Innovative commercial spaces that enhance productivity, brand identity, and customer experience through thoughtful design.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Office & workspace design</li>
+                        <li><i class="fas fa-check"></i> Retail & hospitality spaces</li>
+                        <li><i class="fas fa-check"></i> Adaptive reuse projects</li>
+                        <li><i class="fas fa-check"></i> LEED certification support</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="service-title">Sustainable Architecture</h3>
+                    <p class="service-description">
+                        Environmentally conscious designs that reduce energy consumption and create healthier living and working environments.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Passive solar design</li>
+                        <li><i class="fas fa-check"></i> Green building materials</li>
+                        <li><i class="fas fa-check"></i> Energy modeling & analysis</li>
+                        <li><i class="fas fa-check"></i> Water conservation systems</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Philosophy -->
+    <section class="philosophy-section">
+        <div class="container">
+            <div class="philosophy-content">
+                <div class="philosophy-text">
+                    <h2 class="section-title">Our Design Philosophy</h2>
+                    <p class="philosophy-description">
+                        At LM Architects, we believe architecture should be more than just buildings—it's about creating meaningful experiences that connect people with their environment. Our designs celebrate context, respond to climate, and honor cultural heritage while embracing contemporary innovation.
+                    </p>
+                    <div class="philosophy-principles">
+                        <div class="principle-item">
+                            <h3>Contextual Design</h3>
+                            <p>Every project responds to its unique site, climate, and cultural context, creating architecture that belongs.</p>
+                        </div>
+                        <div class="principle-item">
+                            <h3>Human-Centric</h3>
+                            <p>We prioritize the people who will inhabit and interact with our spaces, designing for comfort, well-being, and joy.</p>
+                        </div>
+                        <div class="principle-item">
+                            <h3>Sustainable Innovation</h3>
+                            <p>Sustainability is integral to our design process—we create buildings that perform well today and adapt to future needs.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="philosophy-image">
+                    <img src="static/images/phill.jpeg" alt="Design Philosophy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Start Your Architectural Journey?</h2>
+                <p class="cta-description">
+                    Let's discuss how we can transform your vision into a remarkable architectural reality. Our team is ready to guide you through every step.
+                </p>
+                <div class="cta-buttons">
+                    <a href="{{ url_for('contact') }}" class="btn btn-primary">Start Your Project</a>
+                    <a href="{{ url_for('projects') }}" class="btn btn-outline">View Our Portfolio</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-title">LM Architects</h3>
+                    <p class="footer-description">
+                        Transforming visions into reality through innovative design, exceptional artistry, and comprehensive education.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-subtitle">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="{{ url_for('home') }}">Home</a></li>
+                        <li><a href="{{ url_for('about') }}">About</a></li>
+                        <li><a href="{{ url_for('projects') }}">Projects</a></li>
+                        <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                        <li><a href="{{ url_for('store') }}">Store</a></li>
+                        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-subtitle">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Architecture Design</a></li>
+                        <li><a href="#">Interior Design</a></li>
+                        <li><a href="#">Vastu Consultancy</a></li>
+                        <li><a href="#">Art Portraits</a></li>
+                        <li><a href="#">Educational Courses</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-subtitle">Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i>8122/6017, Block F, Sanjay Colony, Sector 23, Faridabad, Haryana 121005</p>
+                        <p><i class="fas fa-phone"></i> +91 88827 44327</p>
+                        <p><i class="fas fa-envelope"></i>support@lmlibrary.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 LM Architects. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/architecture.js') }}"></script>
+</body>
+</html>

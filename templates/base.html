@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}LM Architects{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Mobile Menu Button -->
+    <div class="mobile-menu-btn fixed top-4 left-4 z-50 lg:hidden">
+        <button id="menuToggle" class="text-white bg-navy p-2 rounded-md">
+            <i class="fas fa-bars text-xl"></i>
+        </button>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar bg-navy text-white transform -translate-x-full lg:transform-none transition-transform duration-300 ease-in-out fixed top-0 left-0 h-full w-64 lg:w-1/5 z-40 overflow-y-auto">
+        <div class="p-6">
+            <div class="text-center mb-8">
+                <!-- Replace text with logo image -->
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="LM Architects Logo" class="mx-auto mb-2 h-16 w-auto">
+                <p class="text-sm text-gray-300 mt-2">Design • Art • Literature</p>
+            </div>
+            
+            <h2 class="text-xl font-semibold mb-6 text-white border-b border-blue pb-2">Navigation</h2>
+            <ul class="space-y-4">
+                <li><a href="{{ url_for('home') }}" class="nav-link text-lg hover:text-orange transition-colors duration-200 flex items-center"><i class="fas fa-home mr-3"></i> Home</a></li>
+                <li><a href="{{ url_for('about') }}" class="nav-link text-lg hover:text-orange transition-colors duration-200 flex items-center"><i class="fas fa-info-circle mr-3"></i> About Us</a></li>
+                <li><a href="{{ url_for('blog') }}" class="nav-link text-lg hover:text-orange transition-colors duration-200 flex items-center"><i class="fas fa-blog mr-3"></i> Blog</a></li>
+                <li><a href="{{ url_for('store') }}" class="nav-link text-lg hover:text-orange transition-colors duration-200 flex items-center"><i class="fas fa-store mr-3"></i> Store</a></li>
+                <li><a href="{{ url_for('projects') }}" class="nav-link text-lg hover:text-orange transition-colors duration-200 flex items-center"><i class="fas fa-project-diagram mr-3"></i> Projects</a></li>
+                <li><a href="{{ url_for('contact') }}" class="nav-link text-lg hover:text-orange transition-colors duration-200 flex items-center"><i class="fas fa-envelope mr-3"></i> Contact Us</a></li>
+            </ul>
+            
+            <h3 class="text-lg font-semibold mt-8 mb-4 text-white border-b border-blue pb-2">Our Services</h3>
+            
+            <div class="mb-6">
+                <h4 class="font-semibold text-orange flex items-center"><i class="fas fa-drafting-compass mr-2"></i> Architecture</h4>
+                <ul class="list-disc list-inside text-sm text-gray-300 mt-2 pl-4">
+                    <li>Architecture Design</li>
+                    <li>Interior Design</li>
+                    <li>Vastu Consultancy</li>
+                </ul>
+            </div>
+            
+            <div class="mb-6">
+                <h4 class="font-semibold text-orange flex items-center"><i class="fas fa-paint-brush mr-2"></i> Art</h4>
+                <ul class="list-disc list-inside text-sm text-gray-300 mt-2 pl-4">
+                    <li>Pencil/Charcoal Portraits</li>
+                    <li>Oil/Acrylic Portraits</li>
+                    <li>Painting</li>
+                    <li>Store</li>
+                </ul>
+            </div>
+            
+            <div class="mb-6">
+                <h4 class="font-semibold text-orange flex items-center"><i class="fas fa-book-open mr-2"></i> Literature</h4>
+                <ul class="list-disc list-inside text-sm text-gray-300 mt-2 pl-4">
+                    <li>Comparative Religious</li>
+                    <li>UGC NET Preparation</li>
+                    <li>NATA Preparation</li>
+                    <li>ART COURSES</li>
+                    <li>MATHS TEST(CBSE)</li>
+                </ul>
+            </div>
+            
+            <div class="mt-10 pt-6 border-t border-blue">
+                <h4 class="font-semibold mb-4 text-white">Follow Us</h4>
+                <div class="flex space-x-4">
+                    <a href="https://instagram.com" target="_blank" class="bg-white text-navy p-2 rounded-full hover:bg-orange transition-colors duration-200"><i class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com" target="_blank" class="bg-white text-navy p-2 rounded-full hover:bg-orange transition-colors duration-200"><i class="fab fa-youtube"></i></a>
+                    <a href="https://facebook.com" target="_blank" class="bg-white text-navy p-2 rounded-full hover:bg-orange transition-colors duration-200"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com" target="_blank" class="bg-white text-navy p-2 rounded-full hover:bg-orange transition-colors duration-200"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content lg:ml-64 w-full lg:w-4/5 min-h-screen flex flex-col">
+        <div class="flex-grow">
+            {% block content %}{% endblock %}
+        </div>
+        
+        <!-- Footer -->
+        <footer class="bg-navy text-white py-12">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 text-orange">LM Architects</h3>
+                        <p class="text-gray-300">Creating inspiring spaces and art that transform lives and communities through innovative design and creative expression.</p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 text-orange">Quick Links</h3>
+                        <ul class="space-y-2">
+                            <li><a href="{{ url_for('home') }}" class="text-gray-300 hover:text-white transition-colors">Home</a></li>
+                            <li><a href="{{ url_for('about') }}" class="text-gray-300 hover:text-white transition-colors">About Us</a></li>
+                            <li><a href="{{ url_for('projects') }}" class="text-gray-300 hover:text-white transition-colors">Projects</a></li>
+                            <li><a href="{{ url_for('blog') }}" class="text-gray-300 hover:text-white transition-colors">Blog</a></li>
+                            <li><a href="{{ url_for('contact') }}" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 text-orange">Contact Info</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-center"><i class="fas fa-map-marker-alt mr-3 text-orange"></i> 123 Design Street, Creative City</li>
+                            <li class="flex items-center"><i class="fas fa-phone mr-3 text-orange"></i> +1 234 567 8900</li>
+                            <li class="flex items-center"><i class="fas fa-envelope mr-3 text-orange"></i> info@lmarchitects.com</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="border-t border-blue mt-8 pt-8 text-center text-gray-400">
+                    <p>&copy; 2023 LM Architects. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

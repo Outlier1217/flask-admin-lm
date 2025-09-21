@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script>
+        function addMediaField() {
+            const container = document.getElementById('media-container');
+            const mediaField = document.createElement('div');
+            mediaField.className = 'media-field mb-2 d-flex align-items-center';
+            mediaField.innerHTML = `
+                <input type="file" class="form-control me-2" name="media" accept="image/*,video/*">
+                <button type="button" class="btn btn-sm btn-danger" onclick="removeMediaField(this)">Remove</button>
+            `;
+            container.appendChild(mediaField);
+        }
+
+        function removeMediaField(button) {
+            button.parentElement.remove();
+        }
+    </script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Add New Project</h2>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert alert-danger">
+                    {{ messages[0] }}
+                </div>
+            {% endif %}
+        {% endwith %}
+        <form method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="name" class="form-label">Project Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="thumbnail" class="form-label">Thumbnail Image</label>
+                <input type="file" class="form-control" id="thumbnail" name="thumbnail" accept="image/*" required>
+            </div>
+            <div class="mb-3">
+                <label for="client" class="form-label">Client</label>
+                <input type="text" class="form-control" id="client" name="client">
+            </div>
+            <div class="mb-3">
+                <label for="location" class="form-label">Location</label>
+                <input type="text" class="form-control" id="location" name="location">
+            </div>
+            <div class="mb-3">
+                <label for="site_area" class="form-label">Site Area</label>
+                <input type="text" class="form-control" id="site_area" name="site_area">
+            </div>
+            <div class="mb-3">
+                <label for="built_up_area" class="form-label">Built-up Area</label>
+                <input type="text" class="form-control" id="built_up_area" name="built_up_area">
+            </div>
+            <div class="mb-3">
+                <label for="cost" class="form-label">Cost</label>
+                <input type="text" class="form-control" id="cost" name="cost">
+            </div>
+            <div class="mb-3">
+                <label for="duration" class="form-label">Duration</label>
+                <input type="text" class="form-control" id="duration" name="duration">
+            </div>
+            <div class="mb-3">
+                <label for="dwelling_units" class="form-label">Dwelling Units</label>
+                <input type="text" class="form-control" id="dwelling_units" name="dwelling_units">
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" name="description" rows="5"></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Additional Media (Images/Videos)</label>
+                <div id="media-container">
+                    <div class="media-field mb-2 d-flex align-items-center">
+                        <input type="file" class="form-control me-2" name="media" accept="image/*,video/*">
+                        <button type="button" class="btn btn-sm btn-danger" onclick="removeMediaField(this)">Remove</button>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-sm btn-primary" onclick="addMediaField()">Add More Media</button>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Project</button>
+            <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">Back</a>
+        </form>
+    </div>
+</body>
+</html>

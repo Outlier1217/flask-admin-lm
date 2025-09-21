@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pencil & Charcoal Portraits - LM Architects</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pencil_portraits.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="{{ url_for('home') }}">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="LM Architects Logo" class="logo-image">
+                </a>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+                <a href="{{ url_for('about') }}" class="nav-link">About</a>
+                <a href="{{ url_for('projects') }}" class="nav-link">Projects</a>
+                <a href="{{ url_for('blog') }}" class="nav-link">Blog</a>
+                <a href="{{ url_for('store') }}" class="nav-link">Store</a>
+                <a href="{{ url_for('contact') }}" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Pencil & Charcoal Portraits</h1>
+                <p class="hero-description">
+                    Timeless, hand-drawn portraits that capture the essence and emotion of your most cherished moments with exquisite detail and soulful expression.
+                </p>
+                <div class="hero-breadcrumbs">
+                    <a href="{{ url_for('home') }}" class="breadcrumb-link"><i class="fas fa-home"></i> Home</a>
+                    <span class="breadcrumb-separator">/</span>
+                    <span class="breadcrumb-current">Pencil & Charcoal Portraits</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Art Philosophy Section -->
+    <section class="philosophy-section">
+        <div class="container">
+            <div class="philosophy-content">
+                <div class="philosophy-image">
+                    <img src="static/images/pen_1.jpeg" alt="Pencil Portrait Artist">
+                </div>
+                <div class="philosophy-text">
+                    <h2 class="section-title">The Art of Seeing Souls</h2>
+                    <p class="philosophy-description">
+                        Pencil and charcoal portraits are more than mere drawings—they are windows into the human spirit. Each stroke captures not just physical likeness, but the essence, emotion, and story behind every face. Our artists spend hours studying their subjects, seeking that perfect moment when the pencil reveals what words cannot express.
+                    </p>
+                    <div class="philosophy-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-eye"></i>
+                            <h3>Observational Mastery</h3>
+                            <p>Over 10,000 hours of studying human anatomy and expression</p>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-heart"></i>
+                            <h3>Emotional Connection</h3>
+                            <p>Every portrait tells a story of love, memory, and legacy</p>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-palette"></i>
+                            <h3>Medium Expertise</h3>
+                            <p>Mastery of graphite, charcoal, and mixed media techniques</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portrait Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Portrait Gallery</h2>
+                <p class="section-description">
+                    Discover the depth and beauty captured in our recent pencil and charcoal masterpieces.
+                </p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item portrait-item">
+                    <div class="portrait-image">
+                        <img src="static/images/pen_2.jpeg" alt="Family Heirloom Portrait">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <h3 class="overlay-title">Family Heirloom</h3>
+                                <p class="overlay-description">Charcoal on archival paper - 18x24"</p>
+                                <div class="overlay-actions">
+                                    <button class="view-detail-btn" data-modal="portrait-1">
+                                        <i class="fas fa-search-plus"></i> View Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item portrait-item">
+                    <div class="portrait-image">
+                        <img src="static/images/pen_3.jpeg" alt="Eternal Love Portrait">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <h3 class="overlay-title">Eternal Love</h3>
+                                <p class="overlay-description">Graphite & charcoal - 16x20"</p>
+                                <div class="overlay-actions">
+                                    <button class="view-detail-btn" data-modal="portrait-2">
+                                        <i class="fas fa-search-plus"></i> View Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item portrait-item">
+                    <div class="portrait-image">
+                        <img src="static/images/pen_4.jpeg" alt="Warrior Spirit Portrait">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <h3 class="overlay-title">Warrior Spirit</h3>
+                                <p class="overlay-description">Charcoal portrait - 20x24"</p>
+                                <div class="overlay-actions">
+                                    <button class="view-detail-btn" data-modal="portrait-3">
+                                        <i class="fas fa-search-plus"></i> View Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                 <div class="gallery-item portrait-item">
+                    <div class="portrait-image">
+                        <img src="static/images/pen_10.jpeg" alt="Eternal Love Portrait">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <h3 class="overlay-title">Eternal Love</h3>
+                                <p class="overlay-description">Graphite & charcoal - 16x20"</p>
+                                <div class="overlay-actions">
+                                    <button class="view-detail-btn" data-modal="portrait-2">
+                                        <i class="fas fa-search-plus"></i> View Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item portrait-item">
+                    <div class="portrait-image">
+                        <img src="static/images/pen_11.jpeg" alt="Warrior Spirit Portrait">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <h3 class="overlay-title">Warrior Spirit</h3>
+                                <p class="overlay-description">Charcoal portrait - 20x24"</p>
+                                <div class="overlay-actions">
+                                    <button class="view-detail-btn" data-modal="portrait-3">
+                                        <i class="fas fa-search-plus"></i> View Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                 <div class="gallery-item portrait-item">
+                    <div class="portrait-image">
+                        <img src="static/images/pen_12.jpeg" alt="Eternal Love Portrait">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <h3 class="overlay-title">Eternal Love</h3>
+                                <p class="overlay-description">Graphite & charcoal - 16x20"</p>
+                                <div class="overlay-actions">
+                                    <button class="view-detail-btn" data-modal="portrait-2">
+                                        <i class="fas fa-search-plus"></i> View Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item portrait-item">
+                    <div class="portrait-image">
+                        <img src="static/images/pen_13.jpeg" alt="Warrior Spirit Portrait">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <h3 class="overlay-title">Warrior Spirit</h3>
+                                <p class="overlay-description">Charcoal portrait - 20x24"</p>
+                                <div class="overlay-actions">
+                                    <button class="view-detail-btn" data-modal="portrait-3">
+                                        <i class="fas fa-search-plus"></i> View Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                 <div class="gallery-item portrait-item">
+                    <div class="portrait-image">
+                        <img src="static/images/pen_14.jpeg" alt="Eternal Love Portrait">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <h3 class="overlay-title">Eternal Love</h3>
+                                <p class="overlay-description">Graphite & charcoal - 16x20"</p>
+                                <div class="overlay-actions">
+                                    <button class="view-detail-btn" data-modal="portrait-2">
+                                        <i class="fas fa-search-plus"></i> View Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item portrait-item">
+                    <div class="portrait-image">
+                        <img src="static/images/pen_15.jpeg" alt="Warrior Spirit Portrait">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <h3 class="overlay-title">Warrior Spirit</h3>
+                                <p class="overlay-description">Charcoal portrait - 20x24"</p>
+                                <div class="overlay-actions">
+                                    <button class="view-detail-btn" data-modal="portrait-3">
+                                        <i class="fas fa-search-plus"></i> View Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="gallery-item portrait-item">
+                    <div class="portrait-image">
+                        <img src="static/images/pen_16.jpeg" alt="Warrior Spirit Portrait">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <h3 class="overlay-title">Warrior Spirit</h3>
+                                <p class="overlay-description">Charcoal portrait - 20x24"</p>
+                                <div class="overlay-actions">
+                                    <button class="view-detail-btn" data-modal="portrait-3">
+                                        <i class="fas fa-search-plus"></i> View Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item portrait-item">
+                    <div class="portrait-image">
+                        <img src="static/images/pen_5.jpeg" alt="Childhood Memories Portrait">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <h3 class="overlay-title">Childhood Memories</h3>
+                                <p class="overlay-description">Pencil portrait - 12x16"</p>
+                                <div class="overlay-actions">
+                                    <button class="view-detail-btn" data-modal="portrait-4">
+                                        <i class="fas fa-search-plus"></i> View Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item portrait-item">
+                    <div class="portrait-image">
+                        <img src="static/images/pen_6.jpeg" alt="Legacy Portrait">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <h3 class="overlay-title">Legacy Portrait</h3>
+                                <p class="overlay-description">Mixed media - 24x30"</p>
+                                <div class="overlay-actions">
+                                    <button class="view-detail-btn" data-modal="portrait-5">
+                                        <i class="fas fa-search-plus"></i> View Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portrait Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Portrait Creation Process</h2>
+                <p class="section-description">
+                    A meticulous journey from initial consultation to the final reveal of your cherished portrait.
+                </p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Consultation & Reference</h3>
+                        <p class="step-description">
+                            We begin with a detailed consultation to understand your vision, the subject's personality, and the emotion you want to capture. High-resolution reference photos are carefully selected to ensure the best possible likeness.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Composition & Sketch</h3>
+                        <p class="step-description">
+                            Our artist creates multiple composition sketches, focusing on pose, lighting, and framing. Once approved, a detailed underdrawing establishes proportions, values, and the overall composition on archival paper.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Value Study & Rendering</h3>
+                        <p class="step-description">
+                            The portrait takes shape through careful value mapping and progressive rendering. Each layer of graphite or charcoal builds depth, texture, and dimension, capturing the subject's unique character.
+                        </p>
+                    </div>
+                </div>
+
+                
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portrait Services -->
+    <section class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Portrait Services</h2>
+                <p class="section-description">
+                    Tailored portrait solutions to capture your most meaningful relationships and memories.
+                </p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <h3 class="service-title">Family Portraits</h3>
+                    <p class="service-description">
+                        Cherish your family legacy with beautifully crafted group portraits that capture generations of love and connection in exquisite detail.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Individual & group portraits</li>
+                        <li><i class="fas fa-check"></i> Multi-generational compositions</li>
+                        <li><i class="fas fa-check"></i> Custom framing options</li>
+                        <li><i class="fas fa-check"></i> Archival quality preservation</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="service-title">Couple Portraits</h3>
+                    <p class="service-description">
+                        Celebrate your love story with an intimate portrait that captures the unique connection and shared journey of your relationship.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Romantic compositions</li>
+                        <li><i class="fas fa-check"></i> Engagement & anniversary portraits</li>
+                        <li><i class="fas fa-check"></i> Wedding day memories</li>
+                        <li><i class="fas fa-check"></i> Symbolic elements & backgrounds</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3 class="service-title">Children's Portraits</h3>
+                    <p class="service-description">
+                        Capture the fleeting magic of childhood with portraits that preserve their unique personalities, expressions, and innocent wonder.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Playful & natural poses</li>
+                        <li><i class="fas fa-check"></i> Age-appropriate compositions</li>
+                        <li><i class="fas fa-check"></i> Milestone celebrations</li>
+                        <li><i class="fas fa-check"></i> Growth tracking series</li>
+                    </ul>
+                </div>
+
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Stories Section -->
+    <section class="stories-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Stories Behind the Portraits</h2>
+                <p class="section-description">
+                    Hear from the families and individuals whose memories we've had the honor of preserving.
+                </p>
+            </div>
+            <div class="stories-grid">
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="static/images/pen_7.jpeg" alt="Family Story">
+                    </div>
+                    <div class="story-content">
+                        <div class="story-meta">
+                            <span class="story-type">Family Legacy</span>
+                            <span class="story-date">December 2023</span>
+                        </div>
+                        <h3 class="story-title">A Grandmother's Legacy</h3>
+                        <p class="story-excerpt">
+                            "The portrait of my grandmother brought tears to our eyes. You captured not just her face, but her gentle strength and the love she poured into our family for generations. It's now the heart of our living room."
+                        </p>
+                        <div class="story-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4 class="author-name">Priya Sharma</h4>
+                                <span class="author-role">Mother of Three</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="static/images/pen_8.jpeg" alt="Couple Story">
+                    </div>
+                    <div class="story-content">
+                        <div class="story-meta">
+                            <span class="story-type">Love Story</span>
+                            <span class="story-date">October 2023</span>
+                        </div>
+                        <h3 class="story-title">50 Years of Love</h3>
+                        <p class="story-excerpt">
+                            "Our golden anniversary portrait captures the exact moment we realized we'd grow old together. The artist's ability to show our shared history in every line and shadow is truly magical."
+                        </p>
+                        <div class="story-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4 class="author-name">Raj & Meera Patel</h4>
+                                <span class="author-role">Married 50 Years</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="static/images/pen_9.jpeg" alt="Child Story">
+                    </div>
+                    <div class="story-content">
+                        <div class="story-meta">
+                            <span class="story-type">Childhood Memory</span>
+                            <span class="story-date">August 2023</span>
+                        </div>
+                        <h3 class="story-title">First Steps Forever</h3>
+                        <p class="story-excerpt">
+                            "My son's first steps portrait captures that fleeting moment of pure joy and discovery. Looking at it now, years later, it still brings tears to my eyes and reminds me of his boundless curiosity."
+                        </p>
+                        <div class="story-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4 class="author-name">Anita Desai</h4>
+                                <span class="author-role">Proud Mother</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Preserve Your Cherished Memories</h2>
+                <p class="cta-description">
+                    Let us transform your favorite photograph into a timeless work of art that will be treasured for generations. Each portrait is a legacy, crafted with love and artistry.
+                </p>
+                <div class="cta-buttons">
+                    <a href="{{ url_for('contact') }}" class="btn btn-primary">Commission Your Portrait</a>
+                    <a href="#gallery" class="btn btn-outline">Explore Gallery</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Portrait Details -->
+    <div id="portrait-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modal-img" src="" alt="Portrait Detail">
+                </div>
+                <div class="modal-details">
+                    <h3 id="modal-title"></h3>
+                    <p id="modal-description"></p>
+                    <div class="modal-specs">
+                        <span id="modal-medium"></span>
+                        <span id="modal-size"></span>
+                        <span id="modal-price"></span>
+                    </div>
+                    <button class="commission-similar-btn">Commission Similar Portrait</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-title">LM Architects</h3>
+                    <p class="footer-description">
+                        Transforming visions into reality through innovative design, exceptional artistry, and comprehensive education.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-subtitle">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="{{ url_for('home') }}">Home</a></li>
+                        <li><a href="{{ url_for('about') }}">About</a></li>
+                        <li><a href="{{ url_for('projects') }}">Projects</a></li>
+                        <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                        <li><a href="{{ url_for('store') }}">Store</a></li>
+                        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-subtitle">Art Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="{{ url_for('pencil_portraits') }}">Pencil Portraits</a></li>
+                        <li><a href="{{ url_for('oil_portraits') }}">Oil Portraits</a></li>
+                        <li><a href="{{ url_for('paintings') }}">Original Paintings</a></li>
+                        <li><a href="#">Commission Process</a></li>
+                        <li><a href="#">Art Store</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-subtitle">Contact Info</h4>
+                     <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i>8122/6017, Block F, Sanjay Colony, Sector 23, Faridabad, Haryana 121005</p>
+                        <p><i class="fas fa-phone"></i> +91 88827 44327</p>
+                        <p><i class="fas fa-envelope"></i>support@lmlibrary.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 LM Architects. All rights reserved. | Art with soul, crafted for eternity.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/pencil_portraits.js') }}"></script>
+</body>
+</html>

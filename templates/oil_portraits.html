@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oil & Acrylic Portraits - LM Architects</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/oil_portraits.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+           <div class="nav-logo">
+                <a href="{{ url_for('home') }}">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="LM Architects Logo" class="logo-image">
+                </a>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+                <a href="{{ url_for('about') }}" class="nav-link">About</a>
+                <a href="{{ url_for('projects') }}" class="nav-link">Projects</a>
+                <a href="{{ url_for('blog') }}" class="nav-link">Blog</a>
+                <a href="{{ url_for('store') }}" class="nav-link">Store</a>
+                <a href="{{ url_for('contact') }}" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="hero-canvas"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Oil & Acrylic Portraits</h1>
+                <p class="hero-description">
+                    Vibrant, textured masterpieces that breathe life into canvas, capturing the warmth, personality, and timeless elegance of your loved ones through masterful brushwork and rich color.
+                </p>
+                <div class="hero-breadcrumbs">
+                    <a href="{{ url_for('home') }}" class="breadcrumb-link"><i class="fas fa-home"></i> Home</a>
+                    <span class="breadcrumb-separator">/</span>
+                    <span class="breadcrumb-current">Oil & Acrylic Portraits</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Painting Philosophy Section -->
+    <section class="philosophy-section">
+        <div class="container">
+            <div class="philosophy-content">
+                <div class="philosophy-text">
+                    <h2 class="section-title">The Alchemy of Color</h2>
+                    <p class="philosophy-description">
+                        Oil and acrylic portraits are symphonies of color and texture, where each brushstroke tells a story of light, shadow, and human connection. Our artists layer pigments with masterful technique, creating depth that seems to glow from within. These are not just paintings—they are living memories that evolve with time, their richness deepening like fine wine.
+                    </p>
+                    <div class="philosophy-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-palette"></i>
+                            <h3>Masterful Technique</h3>
+                            <p>Layered glazing techniques developed over decades of practice</p>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-fire"></i>
+                            <h3>Color Theory Expertise</h3>
+                            <p>Advanced understanding of pigment mixing and color harmony</p>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-gem"></i>
+                            <h3>Archival Quality</h3>
+                            <p>Professional-grade materials ensuring century-long preservation</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="philosophy-image">
+                    <img src="static/images/oil_1.jpeg" alt="Oil Portrait Artist at Work">
+                    <div class="paint-splatter"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Masterpiece Gallery</h2>
+                <p class="section-description">
+                    Witness the transformation from photograph to canvas—each painting a testament to the power of color and brushwork.
+                </p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item oil-item">
+                    <div class="painting-container">
+                        <img src="static/images/oil_2.jpeg" alt="Renaissance Portrait" class="painting-image">
+                        <div class="canvas-texture"></div>
+                        <div class="frame">
+                            <div class="frame-top"></div>
+                            <div class="frame-bottom"></div>
+                            <div class="frame-left"></div>
+                            <div class="frame-right"></div>
+                        </div>
+                    </div>
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">Renaissance Glow</h3>
+                        <p class="gallery-medium">Oil on linen canvas - 24x30"</p>
+                        <div class="gallery-actions">
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item acrylic-item">
+                    <div class="painting-container">
+                        <img src="static/images/oil_3.jpeg" alt="Modern Expression" class="painting-image">
+                        <div class="canvas-texture"></div>
+                        <div class="frame">
+                            <div class="frame-top"></div>
+                            <div class="frame-bottom"></div>
+                            <div class="frame-left"></div>
+                            <div class="frame-right"></div>
+                        </div>
+                    </div>
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">Modern Expression</h3>
+                        <p class="gallery-medium">Acrylic on gallery-wrap canvas - 20x24"</p>
+                        <div class="gallery-actions">
+                           
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item oil-item">
+                    <div class="painting-container">
+                        <img src="static/images/oil_4.jpeg" alt="Golden Hour" class="painting-image">
+                        <div class="canvas-texture"></div>
+                        <div class="frame">
+                            <div class="frame-top"></div>
+                            <div class="frame-bottom"></div>
+                            <div class="frame-left"></div>
+                            <div class="frame-right"></div>
+                        </div>
+                    </div>
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">Golden Hour</h3>
+                        <p class="gallery-medium">Oil on canvas - 30x40"</p>
+                        <div class="gallery-actions">
+                           
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item acrylic-item">
+                    <div class="painting-container">
+                        <img src="static/images/oil_5.jpeg" alt="Vibrant Portrait" class="painting-image">
+                        <div class="canvas-texture"></div>
+                        <div class="frame">
+                            <div class="frame-top"></div>
+                            <div class="frame-bottom"></div>
+                            <div class="frame-left"></div>
+                            <div class="frame-right"></div>
+                        </div>
+                    </div>
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">Vibrant Soul</h3>
+                        <p class="gallery-medium">Acrylic mixed media - 18x24"</p>
+                        <div class="gallery-actions">
+                            
+                        </div>
+                    </div>
+                </div>
+
+                   <div class="gallery-item acrylic-item">
+                    <div class="painting-container">
+                        <img src="static/images/oil_10.jpeg" alt="Vibrant Portrait" class="painting-image">
+                        <div class="canvas-texture"></div>
+                        <div class="frame">
+                            <div class="frame-top"></div>
+                            <div class="frame-bottom"></div>
+                            <div class="frame-left"></div>
+                            <div class="frame-right"></div>
+                        </div>
+                    </div>
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">Vibrant Soul</h3>
+                        <p class="gallery-medium">Acrylic mixed media - 18x24"</p>
+                        <div class="gallery-actions">
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item oil-item">
+                    <div class="painting-container">
+                        <img src="static/images/oil_6.jpeg" alt="Timeless Elegance" class="painting-image">
+                        <div class="canvas-texture"></div>
+                        <div class="frame">
+                            <div class="frame-top"></div>
+                            <div class="frame-bottom"></div>
+                            <div class="frame-left"></div>
+                            <div class="frame-right"></div>
+                        </div>
+                    </div>
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">Timeless Elegance</h3>
+                        <p class="gallery-medium">Oil on linen - 36x48"</p>
+                        <div class="gallery-actions">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Painting Process -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">The Painter's Journey</h2>
+                <p class="section-description">
+                    From underpainting to final varnish, discover the meticulous process behind our canvas masterpieces.
+                </p>
+            </div>
+            <div class="process-timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Canvas Preparation</h3>
+                        <p class="timeline-description">
+                            Professional-grade linen canvas is stretched, primed with gesso, and toned with burnt umber to create the perfect foundation for oil layering. This preparation ensures longevity and optimal paint adhesion.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item right">
+                    <div class="timeline-icon">
+                        <i class="fas fa-draw-polygon"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Underpainting</h3>
+                        <p class="timeline-description">
+                            A monochromatic underpainting establishes values, composition, and light direction. This critical stage sets the tonal foundation upon which all subsequent color layers will build their luminous quality.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item left">
+                    <div class="timeline-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Color Blocking</h3>
+                        <p class="timeline-description">
+                            Bold color masses are blocked in using alla prima technique, establishing the painting's overall color harmony and temperature relationships before refining details and transitions.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item right">
+                    <div class="timeline-icon">
+                        <i class="fas fa-brush"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Glazing & Refinement</h3>
+                        <p class="timeline-description">
+                            Transparent color glazes are applied over dried underlayers, creating luminosity and depth. Fine details, skin tones, and textural elements are refined with precision brushwork.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item left">
+                    <div class="timeline-icon">
+                        <i class="fas fa-spray-can"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Final Varnishing</h3>
+                        <p class="timeline-description">
+                            After a curing period, conservation-grade varnish is applied to protect the surface and unify the painting's appearance. The final reveal showcases the full vibrancy and archival quality.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Painting Services -->
+    <section class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Commission Your Masterpiece</h2>
+                <p class="section-description">
+                    Custom painting services designed to transform your vision into a stunning work of art.
+                </p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-images"></i>
+                    </div>
+                    <h3 class="service-title">Photo to Canvas</h3>
+                    <p class="service-description">
+                        Transform your favorite photograph into a stunning oil or acrylic painting that captures every detail and emotion with painterly brilliance.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Single subject portraits</li>
+                        <li><i class="fas fa-check"></i> Group family portraits</li>
+                        <li><i class="fas fa-check"></i> Pet portraits</li>
+                        <li><i class="fas fa-check"></i> Multiple photo references</li>
+                    </ul>
+                </div>
+
+                
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 class="service-title">Painting Restoration</h3>
+                    <p class="service-description">
+                        Professional conservation and restoration services for heirloom paintings, bringing faded masterpieces back to their original glory.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Canvas relining & repair</li>
+                        <li><i class="fas fa-check"></i> Varnish removal & reapplication</li>
+                        <li><i class="fas fa-check"></i> Color matching & inpainting</li>
+                        <li><i class="fas fa-check"></i> Frame restoration</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-roller"></i>
+                    </div>
+                    <h3 class="service-title">Style Translation</h3>
+                    <p class="service-description">
+                        Reimagine your subject in the style of your favorite master artists, from Renaissance realism to modern abstraction.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Renaissance & classical</li>
+                        <li><i class="fas fa-check"></i> Impressionist techniques</li>
+                        <li><i class="fas fa-check"></i> Modern & contemporary</li>
+                        <li><i class="fas fa-check"></i> Custom style development</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artist Spotlights -->
+    <section class="artists-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Meet Our Master Painters</h2>
+                <p class="section-description">
+                    The talented artists whose brushstrokes bring your memories to vibrant life on canvas.
+                </p>
+            </div>
+            <div class="artists-grid">
+                <div class="artist-card">
+                    <div class="artist-image">
+                        <img src="static/images/oil_7.jpeg" alt="Rahul Kumar">
+                        <div class="artist-overlay">
+                            <div class="overlay-content">
+                                <h3>Rahul Kumar</h3>
+                                <p>Oil Painting Specialist</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="artist-bio">
+                        <h3 class="artist-name">Rahul Kumar</h3>
+                        <p class="artist-title">Lead Oil Painter</p>
+                        <p class="artist-description">
+                            With 15 years of classical training from the Florence Academy of Art, Rahul specializes in old master techniques adapted for contemporary portraiture. His oil paintings are renowned for their luminous skin tones and dramatic light effects.
+                        </p>
+                        <div class="artist-stats">
+                            <span><i class="fas fa-award"></i> 50+ Exhibitions</span>
+                            <span><i class="fas fa-paint-brush"></i> 200+ Commissions</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="artist-card">
+                    <div class="artist-image">
+                        <img src="static/images/oil_8.jpeg" alt="Priya Mehta">
+                        <div class="artist-overlay">
+                            <div class="overlay-content">
+                                <h3>Priya Mehta</h3>
+                                <p>Acrylic Modernist</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="artist-bio">
+                        <h3 class="artist-name">Priya Mehta</h3>
+                        <p class="artist-title">Acrylic Specialist</p>
+                        <p class="artist-description">
+                            Priya's contemporary acrylic technique blends bold color fields with expressive brushwork, creating portraits that feel both timeless and modern. Her work has been featured in Saatchi Art and Architectural Digest.
+                        </p>
+                        <div class="artist-stats">
+                            <span><i class="fas fa-globe"></i> International Exhibitions</span>
+                            <span><i class="fas fa-star"></i> 5-Star Client Rating</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="artist-card">
+                    <div class="artist-image">
+                        <img src="static/images/oil_9.jpeg" alt="Amit Singh">
+                        <div class="artist-overlay">
+                            <div class="overlay-content">
+                                <h3>Amit Singh</h3>
+                                <p>Restoration Master</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="artist-bio">
+                        <h3 class="artist-name">Amit Singh</h3>
+                        <p class="artist-title">Conservation Expert</p>
+                        <p class="artist-description">
+                            Trained at the Getty Conservation Institute, Amit specializes in painting restoration and conservation. His meticulous work has revived family heirlooms and museum pieces, preserving art for future generations.
+                        </p>
+                        <div class="artist-stats">
+                            <span><i class="fas fa-certificate"></i> Getty Certified</span>
+                            <span><i class="fas fa-university"></i> 100+ Restorations</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Your Story, Masterfully Painted</h2>
+                <p class="cta-description">
+                    Commission a painting that will become a cherished family heirloom, capturing the people, moments, and emotions that matter most to you in vibrant, lasting color.
+                </p>
+                <div class="cta-buttons">
+                    <a href="{{ url_for('contact') }}" class="btn btn-primary">Start Your Commission</a>
+                    <a href="#gallery" class="btn btn-outline">View Gallery</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Artwork Details -->
+    <div id="artwork-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <div class="modal-gallery">
+                    <div class="modal-image-container">
+                        <img id="modal-artwork-img" src="" alt="Artwork Detail">
+                        <div class="zoom-controls">
+                            <button class="zoom-in"><i class="fas fa-search-plus"></i></button>
+                            <button class="zoom-out"><i class="fas fa-search-minus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-details">
+                    <h3 id="modal-artwork-title"></h3>
+                    <p id="modal-artwork-description"></p>
+                    <div class="modal-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Medium:</span>
+                            <span id="modal-medium" class="spec-value"></span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Size:</span>
+                            <span id="modal-size" class="spec-value"></span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Price:</span>
+                            <span id="modal-price" class="spec-value"></span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Completion Time:</span>
+                            <span id="modal-time" class="spec-value"></span>
+                        </div>
+                    </div>
+                    <div class="modal-actions">
+                        <button class="commission-similar-btn">
+                            <i class="fas fa-paint-brush"></i> Commission Similar
+                        </button>
+                        <button class="add-to-cart-modal-btn">
+                            <i class="fas fa-shopping-cart"></i> Add to Shopping Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-title">LM Architects</h3>
+                    <p class="footer-description">
+                        Where architecture meets artistry—transforming spaces and memories into timeless works of beauty.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-behance"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-subtitle">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="{{ url_for('home') }}">Home</a></li>
+                        <li><a href="{{ url_for('about') }}">About</a></li>
+                        <li><a href="{{ url_for('projects') }}">Projects</a></li>
+                        <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                        <li><a href="{{ url_for('store') }}">Art Store</a></li>
+                        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-subtitle">Painting Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="{{ url_for('pencil_portraits') }}">Pencil Portraits</a></li>
+                        <li><a href="{{ url_for('oil_portraits') }}">Oil Portraits</a></li>
+                        <li><a href="{{ url_for('paintings') }}">Original Paintings</a></li>
+                        <li><a href="#">Commission Guide</a></li>
+                        <li><a href="#">Restoration Services</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-subtitle">Studio Information</h4>
+                     <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i>8122/6017, Block F, Sanjay Colony, Sector 23, Faridabad, Haryana 121005</p>
+                        <p><i class="fas fa-phone"></i> +91 88827 44327</p>
+                        <p><i class="fas fa-envelope"></i>support@lmlibrary.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 LM Architects. Crafted with passion. Preserved for generations.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/oil_portraits.js') }}"></script>
+</body>
+</html>

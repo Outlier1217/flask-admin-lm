@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interior Design - LM Architects</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/interior.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+           <div class="nav-logo">
+                <a href="{{ url_for('home') }}">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="LM Architects Logo" class="logo-image">
+                </a>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+                <a href="{{ url_for('about') }}" class="nav-link">About</a>
+                <a href="{{ url_for('projects') }}" class="nav-link">Projects</a>
+                <a href="{{ url_for('blog') }}" class="nav-link">Blog</a>
+                <a href="{{ url_for('store') }}" class="nav-link">Store</a>
+                <a href="{{ url_for('contact') }}" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Interior Design</h1>
+                <p class="hero-description">
+                    Crafting personalized spaces that blend functionality, beauty, and comfort to enhance your everyday living experience.
+                </p>
+                <div class="hero-breadcrumbs">
+                    <a href="{{ url_for('home') }}" class="breadcrumb-link"><i class="fas fa-home"></i> Home</a>
+                    <span class="breadcrumb-separator">/</span>
+                    <span class="breadcrumb-current">Interior Design</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Styles Section -->
+    <section class="styles-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Design Styles</h2>
+                <p class="section-description">
+                    Each project is a unique reflection of your personality and lifestyle, crafted through our diverse design approaches.
+                </p>
+            </div>
+            <div class="styles-grid">
+                <div class="style-card modern-style">
+                    <div class="style-image">
+                        <img src="static/images/int_1.jpeg" alt="Modern Design">
+                        <div class="style-overlay">
+                            <div class="style-content">
+                                <h3 class="style-title">Modern</h3>
+                                <p class="style-description">Clean lines, minimalism, and functional beauty define our modern interiors.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="style-card contemporary-style">
+                    <div class="style-image">
+                        <img src="static/images/int_2.jpeg" alt="Contemporary Design">
+                        <div class="style-overlay">
+                            <div class="style-content">
+                                <h3 class="style-title">Contemporary</h3>
+                                <p class="style-description">Current trends meet timeless elegance in our contemporary designs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="style-card traditional-style">
+                    <div class="style-image">
+                        <img src="static/images/int_3.jpeg" alt="Traditional Design">
+                        <div class="style-overlay">
+                            <div class="style-content">
+                                <h3 class="style-title">Traditional</h3>
+                                <p class="style-description">Classic elegance with rich details and warm, inviting atmospheres.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="style-card eclectic-style">
+                    <div class="style-image">
+                        <img src="static/images/int_4.jpeg" alt="Eclectic Design">
+                        <div class="style-overlay">
+                            <div class="style-content">
+                                <h3 class="style-title">Eclectic</h3>
+                                <p class="style-description">Bold, creative combinations that tell your unique story.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="style-card minimalist-style">
+                    <div class="style-image">
+                        <img src="static/images/int_5.jpeg" alt="Minimalist Design">
+                        <div class="style-overlay">
+                            <div class="style-content">
+                                <h3 class="style-title">Minimalist</h3>
+                                <p class="style-description">Less is more—serene spaces with thoughtful, essential elements.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="style-card industrial-style">
+                    <div class="style-image">
+                        <img src="static/images/int_6.jpeg" alt="Industrial Design">
+                        <div class="style-overlay">
+                            <div class="style-content">
+                                <h3 class="style-title">Industrial</h3>
+                                <p class="style-description">Raw, urban aesthetics with exposed materials and textures.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interior Design Process -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Interior Design Process</h2>
+                <p class="section-description">
+                    A collaborative journey that transforms your vision into a personalized space you'll love coming home to.
+                </p>
+            </div>
+            <div class="process-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">1. Discovery & Inspiration</h3>
+                        <p class="timeline-description">
+                            We start with mood boards, style preferences, and lifestyle analysis to capture your vision and create a design foundation.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">2. Concept Development</h3>
+                        <p class="timeline-description">
+                            Our designers create initial concepts with color palettes, furniture layouts, and material selections for your review.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">3. Detailed Design</h3>
+                        <p class="timeline-description">
+                            Comprehensive plans including custom furniture designs, lighting plans, and detailed specifications are developed.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">4. Procurement & Installation</h3>
+                        <p class="timeline-description">
+                            We source materials and furniture, coordinate with contractors, and oversee installation to ensure flawless execution.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">5. Final Styling & Reveal</h3>
+                        <p class="timeline-description">
+                            The final touches of styling and accessories complete your space, followed by a grand reveal celebration.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Interior Projects -->
+    <section class="featured-projects-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Interior Projects</h2>
+                <p class="section-description">
+                    Transformative interior spaces that blend style, comfort, and functionality.
+                </p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card interior-card">
+                    <div class="project-image">
+                        <img src="static/images/cop_1.jpeg" alt="Urban Loft">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3 class="project-title">Urban Loft Apartment</h3>
+                                <p class="project-location">Bangalore City Center</p>
+                                <div class="project-stats">
+                                    <span class="stat-item"><i class="fas fa-home"></i> 1800 sq.ft</span>
+                                    <span class="stat-item"><i class="fas fa-palette"></i> Modern Style</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag">Residential</span>
+                            <span class="project-tag">Modern</span>
+                            <span class="project-tag">Open Concept</span>
+                        </div>
+                        <p class="project-description">
+                            A stunning urban loft transformation featuring an open-plan living area, custom built-ins, and a sophisticated color palette that maximizes natural light.
+                        </p>
+                        <a href="#" class="project-link">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card interior-card">
+                    <div class="project-image">
+                        <img src="static/images/cop_2.jpeg" alt="Luxury Villa">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3 class="project-title">Luxury Villa Interiors</h3>
+                                <p class="project-location">Goa Beachfront</p>
+                                <div class="project-stats">
+                                    <span class="stat-item"><i class="fas fa-bed"></i> 5 Bedrooms</span>
+                                    <span class="stat-item"><i class="fas fa-crown"></i> Luxury Design</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag">Residential</span>
+                            <span class="project-tag">Luxury</span>
+                            <span class="project-tag">Contemporary</span>
+                        </div>
+                        <p class="project-description">
+                            Opulent beachfront villa interiors featuring custom Italian furniture, marble finishes, and seamless indoor-outdoor living spaces.
+                        </p>
+                        <a href="#" class="project-link">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card interior-card">
+                    <div class="project-image">
+                        <img src="static/images/cop_3.jpeg" alt="Corporate Office">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3 class="project-title">Corporate Office Spaces</h3>
+                                <p class="project-location">Mumbai Business District</p>
+                                <div class="project-stats">
+                                    <span class="stat-item"><i class="fas fa-building"></i> 5000 sq.ft</span>
+                                    <span class="stat-item"><i class="fas fa-users"></i> 50 Workstations</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag">Commercial</span>
+                            <span class="project-tag">Corporate</span>
+                            <span class="project-tag">Modern</span>
+                        </div>
+                        <p class="project-description">
+                            Contemporary office interiors designed for collaboration and productivity, featuring biophilic elements and flexible workspace configurations.
+                        </p>
+                        <a href="#" class="project-link">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interior Design Services -->
+    <section class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Interior Design Services</h2>
+                <p class="section-description">
+                    Complete interior solutions from concept to completion, tailored to your unique needs and style preferences.
+                </p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="service-title">Residential Interiors</h3>
+                    <p class="service-description">
+                        Complete home transformations that create personalized, comfortable, and stylish living spaces for modern lifestyles.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Full home interior design</li>
+                        <li><i class="fas fa-check"></i> Custom furniture design</li>
+                        <li><i class="fas fa-check"></i> Kitchen & bathroom design</li>
+                        <li><i class="fas fa-check"></i> Lighting & electrical planning</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="service-title">Commercial Interiors</h3>
+                    <p class="service-description">
+                        Professional workspace environments that enhance productivity, brand identity, and employee well-being.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Office & workspace design</li>
+                        <li><i class="fas fa-check"></i> Retail store interiors</li>
+                        <li><i class="fas fa-check"></i> Hospitality spaces</li>
+                        <li><i class="fas fa-check"></i> Reception & lobby areas</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3 class="service-title">3D Visualization</h3>
+                    <p class="service-description">
+                        Photorealistic renderings and virtual walkthroughs that bring your design concepts to life before construction begins.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Photorealistic 3D renders</li>
+                        <li><i class="fas fa-check"></i> Virtual reality walkthroughs</li>
+                        <li><i class="fas fa-check"></i> Interior animations</li>
+                        <li><i class="fas fa-check"></i> Material & lighting studies</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Tips Section -->
+    <section class="tips-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Interior Design Tips</h2>
+                <p class="section-description">
+                    Expert advice to help you create beautiful, functional spaces that reflect your personal style.
+                </p>
+            </div>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-number">01</div>
+                    <h3 class="tip-title">Start with a Plan</h3>
+                    <p class="tip-description">
+                        Before purchasing anything, create a comprehensive plan that considers your lifestyle, needs, and long-term goals for the space.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">02</div>
+                    <h3 class="tip-title">Layer Your Lighting</h3>
+                    <p class="tip-description">
+                        Combine ambient, task, and accent lighting to create depth and functionality in every room of your home.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">03</div>
+                    <h3 class="tip-title">Choose Quality Over Quantity</h3>
+                    <p class="tip-description">
+                        Invest in fewer, high-quality pieces rather than filling your space with inexpensive, low-quality items that won't last.
+                    </p>
+                </div>
+
+               
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Transform Your Space Today</h2>
+                <p class="cta-description">
+                    Ready to create the interior of your dreams? Our design experts are here to guide you through every step of the process.
+                </p>
+                <div class="cta-buttons">
+                    <a href="{{ url_for('contact') }}" class="btn btn-primary">Book Consultation</a>
+                    <a href="{{ url_for('projects') }}" class="btn btn-outline">See Our Work</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-title">LM Architects</h3>
+                    <p class="footer-description">
+                        Transforming visions into reality through innovative design, exceptional artistry, and comprehensive education.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-subtitle">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="{{ url_for('home') }}">Home</a></li>
+                        <li><a href="{{ url_for('about') }}">About</a></li>
+                        <li><a href="{{ url_for('projects') }}">Projects</a></li>
+                        <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                        <li><a href="{{ url_for('store') }}">Store</a></li>
+                        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-subtitle">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Architecture Design</a></li>
+                        <li><a href="#">Interior Design</a></li>
+                        <li><a href="#">Vastu Consultancy</a></li>
+                        <li><a href="#">Art Portraits</a></li>
+                        <li><a href="#">Educational Courses</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-subtitle">Contact Info</h4>
+                     <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i>8122/6017, Block F, Sanjay Colony, Sector 23, Faridabad, Haryana 121005</p>
+                        <p><i class="fas fa-phone"></i> +91 88827 44327</p>
+                        <p><i class="fas fa-envelope"></i>support@lmlibrary.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 LM Architects. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/interior.js') }}"></script>
+</body>
+</html>

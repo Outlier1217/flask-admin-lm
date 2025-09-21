@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ project.name }} - LM Architects</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                    <a href="{{ url_for('home') }}">
+                        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="LM Architects Logo" class="logo-image">
+                    </a>
+                </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+                <a href="{{ url_for('about') }}" class="nav-link">About</a>
+                <a href="{{ url_for('projects') }}" class="nav-link active">Projects</a>
+                <a href="{{ url_for('blog') }}" class="nav-link">Blog</a>
+                <a href="{{ url_for('store') }}" class="nav-link">Store</a>
+                <a href="{{ url_for('contact') }}" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Detail -->
+    <section class="project-detail">
+        <div class="container">
+            <div class="project-hero">
+                {% if project.thumbnail %}
+                <img src="{{ url_for('static', filename=project.thumbnail) }}" alt="{{ project.name }}" class="project-hero-image">
+                {% else %}
+                <img src="https://via.placeholder.com/1200x600" alt="No Thumbnail" class="project-hero-image">
+                {% endif %}
+                
+                <div class="project-header">
+                    <h1 class="project-title">{{ project.name }}</h1>
+                    <div class="project-actions">
+                        <a href="{{ url_for('projects') }}" class="btn btn-outline">
+                            <i class="fas fa-arrow-left"></i> Back to Projects
+                        </a>
+                        <button class="btn btn-primary share-btn">
+                            <i class="fas fa-share-alt"></i> Share
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-content">
+                <div class="project-info">
+                    <div class="info-card">
+                        <h3 class="info-title">Project Details</h3>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span class="info-label">Client:</span>
+                                <span class="info-value">{{ project.client or 'N/A' }}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Location:</span>
+                                <span class="info-value">{{ project.location or 'N/A' }}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Site Area:</span>
+                                <span class="info-value">{{ project.site_area or 'N/A' }}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Built-up Area:</span>
+                                <span class="info-value">{{ project.built_up_area or 'N/A' }}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Project Cost:</span>
+                                <span class="info-value">{{ project.cost or 'N/A' }}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Duration:</span>
+                                <span class="info-value">{{ project.duration or 'N/A' }}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Dwelling Units:</span>
+                                <span class="info-value">{{ project.dwelling_units or 'N/A' }}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="description-card">
+                        <h3 class="info-title">Project Description</h3>
+                        <p class="project-description">{{ project.description or 'No description available.' }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Media -->
+            {% if project.media %}
+            <div class="project-gallery">
+                <h2 class="section-title">Project Gallery</h2>
+                <div class="gallery-grid">
+                    {% for media in project.media %}
+                    <div class="gallery-item">
+                        {% if media.file_type == 'image' %}
+                        <img src="{{ url_for('static', filename=media.file_path) }}" alt="Project Media" class="gallery-image">
+                        {% elif media.file_type == 'video' %}
+                        <video class="gallery-video" controls preload="metadata">
+                            <source src="{{ url_for('static', filename=media.file_path) }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Related Projects -->
+            <div class="related-projects">
+                <h2 class="section-title">Related Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt="Modern Residence" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">Modern Family Residence</h3>
+                            <p class="project-description">A contemporary home designed for modern living with sustainable features.</p>
+                            <a href="#" class="project-link">View Project</a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80" alt="Office Design" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">Corporate Office Space</h3>
+                            <p class="project-description">Innovative workspace design promoting collaboration and productivity.</p>
+                            <a href="#" class="project-link">View Project</a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1100&q=80" alt="Art Installation" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">Public Art Installation</h3>
+                            <p class="project-description">Interactive sculpture exploring the relationship between space and community.</p>
+                            <a href="#" class="project-link">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Testimonial -->
+            <div class="project-testimonial">
+                <div class="testimonial-content">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">
+                        Working with LM Architects was a transformative experience. They listened to our needs, offered creative solutions we hadn't considered, and delivered a space that perfectly balances form and function.
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4 class="author-name">Rohan Malhotra</h4>
+                            <p class="author-title">Project Client</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-title">LM Architects</h3>
+                    <p class="footer-description">
+                        Transforming visions into reality through innovative design, exceptional artistry, and comprehensive education.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-subtitle">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="{{ url_for('home') }}">Home</a></li>
+                        <li><a href="{{ url_for('about') }}">About</a></li>
+                        <li><a href="{{ url_for('projects') }}">Projects</a></li>
+                        <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                        <li><a href="{{ url_for('store') }}">Store</a></li>
+                        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-subtitle">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Architecture Design</a></li>
+                        <li><a href="#">Interior Design</a></li>
+                        <li><a href="#">Vastu Consultancy</a></li>
+                        <li><a href="#">Art Portraits</a></li>
+                        <li><a href="#">Educational Courses</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-subtitle">Contact Info</h4>
+                     <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i>  8122/6017, Block F, Sanjay Colony, Sector 23, Faridabad, Haryana 121005</p>
+                        <p><i class="fas fa-phone"></i> +91 88827 44327</p>
+                        <p><i class="fas fa-envelope"></i>support@lmlibrary.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 LM Architects. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

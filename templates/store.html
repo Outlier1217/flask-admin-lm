@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store - LM Architects</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="{{ url_for('home') }}">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="LM Architects Logo" class="logo-image">
+                </a>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+                <a href="{{ url_for('about') }}" class="nav-link">About</a>
+                <a href="{{ url_for('projects') }}" class="nav-link">Projects</a>
+                <a href="{{ url_for('blog') }}" class="nav-link">Blog</a>
+                <a href="{{ url_for('store') }}" class="nav-link active">Store</a>
+                <a href="{{ url_for('contact') }}" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="hero-title">LM Architects Store</h1>
+            <p class="hero-description">Discover unique art, prints, and design items from our studio</p>
+        </div>
+    </section>
+
+    <!-- Store Categories -->
+    <section class="store-categories">
+        <div class="container">
+            <div class="category-filters">
+                <button class="category-filter active" data-category="all">All Items</button>
+                <button class="category-filter" data-category="prints">Art Prints</button>
+                <button class="category-filter" data-category="original">Original Art</button>
+                <button class="category-filter" data-category="books">Books</button>
+                <button class="category-filter" data-category="merch">Merchandise</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="container">
+            <h2 class="section-title">Featured Products</h2>
+            <p class="section-description">Curated selection of our most popular items</p>
+            
+            <div class="products-grid">
+                <div class="product-card" data-category="prints">
+                    <div class="product-image">
+                        <img src="static/images/vast_4.jpeg" alt="Architectural Print">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Cityscape Blueprint</h3>
+                        <p class="product-description">Limited edition architectural print of Mumbai skyline</p>
+                        <div class="product-footer">
+                            <span class="product-price">₹2,500</span>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="books">
+                    <div class="product-image">
+                        <img src="static/images/oil_8.jpeg" alt="Art Book">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Design Perspectives</h3>
+                        <p class="product-description">Collection of essays on modern architecture and design</p>
+                        <div class="product-footer">
+                            <span class="product-price">₹1,800</span>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="product-card" data-category="books">
+                    <div class="product-image">
+                        <img src="static/images/vast_3.jpeg" alt="Art Book">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Design Perspectives</h3>
+                        <p class="product-description">Collection of essays on modern architecture and design</p>
+                        <div class="product-footer">
+                            <span class="product-price">₹1,800</span>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="product-card" data-category="books">
+                    <div class="product-image">
+                        <img src="static/images/vast_1.jpeg" alt="Art Book">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Design Perspectives</h3>
+                        <p class="product-description">Collection of essays on modern architecture and design</p>
+                        <div class="product-footer">
+                            <span class="product-price">₹1,800</span>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="original">
+                    <div class="product-image">
+                        <img src="static/images/vast_2.jpeg" alt="Original Painting">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Abstract Composition</h3>
+                        <p class="product-description">Original acrylic painting on canvas, 24" x 36"</p>
+                        <div class="product-footer">
+                            <span class="product-price">₹15,000</span>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="merch">
+                    <div class="product-image">
+                        <img src="static/images/pen_1.jpeg" alt="Design Mug">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Architect's Mug</h3>
+                        <p class="product-description">Ceramic mug with blueprint-inspired design</p>
+                        <div class="product-footer">
+                            <span class="product-price">₹850</span>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Products -->
+    <section class="all-products">
+        <div class="container">
+            <h2 class="section-title">All Products</h2>
+            <p class="section-description">Browse our complete collection</p>
+            
+            <div class="products-grid">
+                <div class="product-card" data-category="books">
+                    <div class="product-image">
+                        <img src="static/images/oil_1.jpeg" alt="Home Design Guide">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Residential Design Guide</h3>
+                        <p class="product-description">Comprehensive ebook on home design principles</p>
+                        
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="merch">
+                    <div class="product-image">
+                        <img src="static/images/int_1.jpeg" alt="Art Supplies">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Sketching Kit</h3>
+                        <p class="product-description">Premium drawing materials for architects and artists</p>
+                        
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="merch">
+                    <div class="product-image">
+                        <img src="static/images/pen_1.jpeg" alt="Architectural Model">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Modern House Model</h3>
+                        <p class="product-description">3D printed architectural model for display</p>
+                        
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="prints">
+                    <div class="product-image">
+                        <img src="static/images/cop_1.jpeg" alt="Art Print">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Geometric Patterns</h3>
+                        <p class="product-description">Set of 3 minimalist art prints, framed options available</p>
+                        
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="books">
+                    <div class="product-image">
+                        <img src="static/images/moder.jpeg" alt="Online Course">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Architecture 101 Course</h3>
+                        <p class="product-description">Online video course for architecture enthusiasts</p>
+                        
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="merch">
+                    <div class="product-image">
+                        <img src="static/images/villa.jpeg" alt="Tote Bag">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Design Tote Bag</h3>
+                        <p class="product-description">Eco-friendly cotton tote with architectural print</p>
+                       
+                    </div>
+                </div>
+            </div>
+            
+            <div class="load-more">
+                <button class="btn btn-outline">Load More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Customer Reviews</h2>
+            <p class="section-description">What our customers say about our products</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"The architectural print I purchased exceeded my expectations. The quality is exceptional, and it looks stunning in my office."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4 class="author-name">Amit Patel</h4>
+                            <p class="author-location">Mumbai</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"The sketching kit is perfect for both beginners and professionals. High-quality materials and beautifully packaged."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4 class="author-name">Neha Sharma</h4>
+                            <p class="author-location">Delhi</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="testimonial-text">"The online course was incredibly informative. Well-structured content with practical insights from experienced architects."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4 class="author-name">Rahul Verma</h4>
+                            <p class="author-location">Bangalore</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-card">
+                <h2 class="newsletter-title">Stay Updated</h2>
+                <p class="newsletter-description">Subscribe to get notified about new products, exclusive offers, and art events</p>
+                
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" class="newsletter-input">
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-title">LM Architects</h3>
+                    <p class="footer-description">
+                        Transforming visions into reality through innovative design, exceptional artistry, and comprehensive education.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-subtitle">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="{{ url_for('home') }}">Home</a></li>
+                        <li><a href="{{ url_for('about') }}">About</a></li>
+                        <li><a href="{{ url_for('projects') }}">Projects</a></li>
+                        <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                        <li><a href="{{ url_for('store') }}">Store</a></li>
+                        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-subtitle">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Architecture Design</a></li>
+                        <li><a href="#">Interior Design</a></li>
+                        <li><a href="#">Vastu Consultancy</a></li>
+                        <li><a href="#">Art Portraits</a></li>
+                        <li><a href="#">Educational Courses</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-subtitle">Contact Info</h4>
+                     <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i>  8122/6017, Block F, Sanjay Colony, Sector 23, Faridabad, Haryana 121005</p>
+                        <p><i class="fas fa-phone"></i> +91 88827 44327</p>
+                        <p><i class="fas fa-envelope"></i>support@lmlibrary.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 LM Architects. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

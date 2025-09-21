@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ blog.headline }} - LM Architects Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="{{ url_for('home') }}">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="LM Architects Logo" class="logo-image">
+                </a>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+                <a href="{{ url_for('about') }}" class="nav-link">About</a>
+                <a href="{{ url_for('projects') }}" class="nav-link">Projects</a>
+                <a href="{{ url_for('blog') }}" class="nav-link active">Blog</a>
+                <a href="{{ url_for('store') }}" class="nav-link">Store</a>
+                <a href="{{ url_for('contact') }}" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Detail -->
+    <article class="blog-detail">
+        <div class="container">
+            <div class="blog-detail-content">
+                {% if blog.thumbnail %}
+                <img src="{{ url_for('static', filename=blog.thumbnail) }}" alt="{{ blog.headline }}" class="blog-detail-image">
+                {% else %}
+                <img src="https://via.placeholder.com/1000x500" alt="No Thumbnail" class="blog-detail-image">
+                {% endif %}
+                
+                <div class="blog-detail-header">
+                    <div class="blog-meta">
+                        <span class="blog-date"><i class="far fa-calendar"></i> {{ blog.created_at.strftime('%B %d, %Y') }}</span>
+                        <span class="blog-read-time"><i class="far fa-clock"></i> 5 min read</span>
+                        <span class="blog-author"><i class="far fa-user"></i> Admin</span>
+                    </div>
+                    
+                    <h1 class="blog-detail-title">{{ blog.headline }}</h1>
+                </div>
+                
+                <div class="blog-detail-body">
+                    {{ blog.content | safe }}
+                </div>
+                
+                <div class="blog-detail-footer">
+                    <div class="share-section">
+                        <span class="share-label">Share this article:</span>
+                        <div class="share-buttons">
+                            <a href="#" class="share-button"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="share-button"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="share-button"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="share-button"><i class="fab fa-pinterest-p"></i></a>
+                        </div>
+                    </div>
+                    
+                    <a href="{{ url_for('blog') }}" class="back-link">
+                        <i class="fas fa-arrow-left"></i> Back to Blog
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Related Posts -->
+            <div class="related-posts">
+                <h2 class="section-title">Related Articles</h2>
+                
+                <div class="related-grid">
+                    <div class="related-card">
+                        <h3 class="related-title">Sustainable Architecture Trends for 2023</h3>
+                        <p class="related-excerpt">Explore the latest innovations in eco-friendly building design and materials that are shaping the future of architecture.</p>
+                        <a href="#" class="related-link">Read More</a>
+                    </div>
+                    
+                    <div class="related-card">
+                        <h3 class="related-title">The Intersection of Art and Architecture</h3>
+                        <p class="related-excerpt">How contemporary artists and architects are collaborating to create immersive spatial experiences that engage all senses.</p>
+                        <a href="#" class="related-link">Read More</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Comments Section -->
+            <div class="comments-section">
+                <h2 class="section-title">Comments</h2>
+                
+                <div class="comment-form-card">
+                    <form class="comment-form">
+                        <div class="form-group">
+                            <label for="comment" class="form-label">Leave a comment</label>
+                            <textarea id="comment" rows="4" class="form-textarea" placeholder="Share your thoughts..."></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" id="name" class="form-input" placeholder="Your name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" id="email" class="form-input" placeholder="Your email">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Post Comment</button>
+                    </form>
+                </div>
+                
+                <div class="comments-list">
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <div class="comment-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="comment-author">
+                                <h4 class="author-name">Rajesh Kumar</h4>
+                                <span class="comment-date">October 15, 2023</span>
+                            </div>
+                        </div>
+                        <div class="comment-body">
+                            <p>This article provided great insights into modern architectural practices. I especially appreciated the section on sustainable materials.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <div class="comment-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="comment-author">
+                                <h4 class="author-name">Meera Singh</h4>
+                                <span class="comment-date">October 12, 2023</span>
+                            </div>
+                        </div>
+                        <div class="comment-body">
+                            <p>As an art student, I found the connections between architectural principles and artistic composition particularly enlightening. Looking forward to more content like this!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-title">LM Architects</h3>
+                    <p class="footer-description">
+                        Transforming visions into reality through innovative design, exceptional artistry, and comprehensive education.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-subtitle">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="{{ url_for('home') }}">Home</a></li>
+                        <li><a href="{{ url_for('about') }}">About</a></li>
+                        <li><a href="{{ url_for('projects') }}">Projects</a></li>
+                        <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                        <li><a href="{{ url_for('store') }}">Store</a></li>
+                        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-subtitle">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Architecture Design</a></li>
+                        <li><a href="#">Interior Design</a></li>
+                        <li><a href="#">Vastu Consultancy</a></li>
+                        <li><a href="#">Art Portraits</a></li>
+                        <li><a href="#">Educational Courses</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-subtitle">Contact Info</h4>
+                     <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i>  8122/6017, Block F, Sanjay Colony, Sector 23, Faridabad, Haryana 121005</p>
+                        <p><i class="fas fa-phone"></i> +91 88827 44327</p>
+                        <p><i class="fas fa-envelope"></i>support@lmlibrary.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 LM Architects. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
