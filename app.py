@@ -5,18 +5,19 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 import os
 from datetime import datetime
-from dotenv import load_dotenv
 import logging
 import mimetypes
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
-load_dotenv()
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'd97250b610fa28d9c8edbe431f532f4e549b95b45dd60fb4abd7419b14df1ebb'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgresql://postgres:root@localhost/admin_lm')
+
+# HARDCODED RENDER DATABASE URL - No environment variables needed!
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://admin_lm_user:KTqfHzwSnyqN3R8PLUN1UycX0tKUycUZ@dpg-d37qinffte5s73bgjok0-a.oregon-postgres.render.com/admin_lm'
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'mp4'}
@@ -29,7 +30,7 @@ login_manager.login_view = 'login'
 # Ensure upload folder exists
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
-# Models (unchanged from your original code)
+# Models
 class Admin(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
@@ -84,9 +85,12 @@ def is_mobile_request():
 
 # Initialize database (only runs once on startup)
 def init_db():
-    with app.app_context():
-        db.create_all()
-        logger.info("Database tables created/initialized")
+    try:
+        with app.app_context():
+            db.create_all()
+            logger.info("Database tables created/initialized successfully")
+    except Exception as e:
+        logger.error(f"Database initialization error: {str(e)}")
 
 # Run database initialization on startup
 init_db()
@@ -99,7 +103,7 @@ def debug_uploads():
     files = os.listdir(upload_dir) if os.path.exists(upload_dir) else []
     return jsonify({'upload_folder': upload_dir, 'files': files})
 
-# Add these routes after the existing public routes
+# Service routes
 @app.route('/architecture')
 def architecture():
     return render_template('architecture.html', is_mobile=is_mobile_request())
@@ -112,7 +116,6 @@ def interior():
 def vastu():
     return render_template('vastu.html', is_mobile=is_mobile_request())
 
-# Add these routes after the existing art service routes
 @app.route('/pencil-portraits')
 def pencil_portraits():
     return render_template('pencil_portraits.html', is_mobile=is_mobile_request())
@@ -125,7 +128,7 @@ def oil_portraits():
 def paintings():
     return render_template('paintings.html', is_mobile=is_mobile_request())
 
-# Admin Routes (unchanged from your original code)
+# Admin Routes
 @app.route('/admin')
 def index():
     return redirect(url_for('login'))
@@ -456,9 +459,13 @@ def delete_blog(id):
 # Public Routes
 @app.route('/')
 def home():
-    blogs = Blog.query.order_by(Blog.created_at.desc()).all()
-    projects = Project.query.limit(3).all()  # Fetch only 3 projects for featured section
-    return render_template('index.html', blogs=blogs, projects=projects, is_mobile=is_mobile_request())
+    try:
+        blogs = Blog.query.order_by(Blog.created_at.desc()).all()
+        projects = Project.query.limit(3).all()
+        return render_template('index.html', blogs=blogs, projects=projects, is_mobile=is_mobile_request())
+    except Exception as e:
+        logger.error(f"Error loading homepage: {str(e)}")
+        return render_template('index.html', blogs=[], projects=[], is_mobile=is_mobile_request())
 
 @app.route('/about')
 def about():
@@ -466,16 +473,25 @@ def about():
 
 @app.route('/blog')
 def blog():
-    blogs = Blog.query.order_by(Blog.created_at.desc()).all()
-    return render_template('blog.html', blogs=blogs, is_mobile=is_mobile_request())
+    try:
+        blogs = Blog.query.order_by(Blog.created_at.desc()).all()
+        return render_template('blog.html', blogs=blogs, is_mobile=is_mobile_request())
+    except Exception as e:
+        logger.error(f"Error loading blog page: {str(e)}")
+        return render_template('blog.html', blogs=[], is_mobile=is_mobile_request())
 
 @app.route('/blog/<int:id>')
 def blog_detail(id):
-    blog = db.session.get(Blog, id)
-    if not blog:
+    try:
+        blog = db.session.get(Blog, id)
+        if not blog:
+            flash('Blog not found')
+            return redirect(url_for('blog'))
+        return render_template('blog_detail.html', blog=blog, is_mobile=is_mobile_request())
+    except Exception as e:
+        logger.error(f"Error loading blog detail: {str(e)}")
         flash('Blog not found')
         return redirect(url_for('blog'))
-    return render_template('blog_detail.html', blog=blog, is_mobile=is_mobile_request())
 
 @app.route('/store')
 def store():
@@ -483,19 +499,28 @@ def store():
 
 @app.route('/projects')
 def projects():
-    projects = Project.query.all()
-    for project in projects:
-        project.media = ProjectMedia.query.filter_by(project_id=project.id).all()
-    return render_template('projects.html', projects=projects, is_mobile=is_mobile_request())
+    try:
+        projects = Project.query.all()
+        for project in projects:
+            project.media = ProjectMedia.query.filter_by(project_id=project.id).all()
+        return render_template('projects.html', projects=projects, is_mobile=is_mobile_request())
+    except Exception as e:
+        logger.error(f"Error loading projects page: {str(e)}")
+        return render_template('projects.html', projects=[], is_mobile=is_mobile_request())
 
 @app.route('/project/<int:id>')
 def project_detail(id):
-    project = db.session.get(Project, id)
-    if not project:
+    try:
+        project = db.session.get(Project, id)
+        if not project:
+            flash('Project not found')
+            return redirect(url_for('projects'))
+        project.media = ProjectMedia.query.filter_by(project_id=project.id).all()
+        return render_template('project_detail.html', project=project, is_mobile=is_mobile_request())
+    except Exception as e:
+        logger.error(f"Error loading project detail: {str(e)}")
         flash('Project not found')
         return redirect(url_for('projects'))
-    project.media = ProjectMedia.query.filter_by(project_id=project.id).all()
-    return render_template('project_detail.html', project=project, is_mobile=is_mobile_request())
 
 @app.route('/contact')
 def contact():
